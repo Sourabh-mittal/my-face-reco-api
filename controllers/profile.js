@@ -6,7 +6,6 @@ const handleProfile = (req, res, db) => {
     .where({
       id: id,
     })
-    .returning("*")
     .then((user) => {
       if (user.length) {
         res.json(user[0]);
