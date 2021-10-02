@@ -25,7 +25,7 @@ app.use(cors());
 
 app.get("/", (req, res) => {
   console.log("request made for the homepage.");
-  res.json(" it is a success.");
+  res.send(" it is a success.");
 });
 
 app.post("/signin", signin.handleSignin(db, bcrypt));
