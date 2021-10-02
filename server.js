@@ -16,8 +16,7 @@ const db = knex({
   // password: "6f7ea1d301542baab9dcb7efd8901096b60adb695cd806ecb6877e420870134f",
   client: "pg",
   connection: {
-    connnectionString:
-      "postgres://kvhkvdpleqvgpq:6f7ea1d301542baab9dcb7efd8901096b60adb695cd806ecb6877e420870134f@ec2-63-33-14-215.eu-west-1.compute.amazonaws.com:5432/d9tqbk109ejkha",
+    connnectionString: process.env.DATABASE_URL,
     ssl: false,
   },
 });
@@ -29,7 +28,10 @@ app.use(cors());
 
 app.get("/", (req, res) => {
   console.log("request made for the homepage.");
-  res.send(" it is a success.");
+  console.log(db);
+  console.log(process.env.DATABASE_URL);
+  console.log(process.env.DATABASE_URI);
+  res.send(" it is a success");
 });
 
 app.post("/signin", signin.handleSignin(db, bcrypt));
