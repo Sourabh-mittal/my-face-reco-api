@@ -11,8 +11,9 @@ const image = require("./controllers/image");
 const db = knex({
   client: "pg",
   connection: {
-    connnectionString: process.env.DATABASE_URL,
-    ssl: true,
+    // connnectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
   },
 });
 
@@ -25,7 +26,7 @@ app.get("/", (req, res) => {
   console.log("request made for the homepage.");
   console.log(db);
   console.log(process.env.DATABASE_URL);
-  console.log(process.env.DATABASE_URI);
+  console.log(db.connection.connectionString);
   res.send(" it is a success");
 });
 
