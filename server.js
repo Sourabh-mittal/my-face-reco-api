@@ -18,7 +18,7 @@ const db = knex({
   connection: {
     connnectionString:
       "postgres://kvhkvdpleqvgpq:6f7ea1d301542baab9dcb7efd8901096b60adb695cd806ecb6877e420870134f@ec2-63-33-14-215.eu-west-1.compute.amazonaws.com:5432/d9tqbk109ejkha",
-    ssl: true,
+    ssl: false,
   },
 });
 
