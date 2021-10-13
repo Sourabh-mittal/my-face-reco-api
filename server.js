@@ -22,10 +22,6 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  console.log("request made for the homepage.");
-  console.log(db);
-  console.log(process.env.DATABASE_URL);
-  console.log(db.connection.connectionString);
   res.send(" it is a success");
 });
 
